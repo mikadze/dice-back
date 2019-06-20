@@ -140,11 +140,11 @@ userSchema.set("toObject", {
       ret.funds = ret.funds.map(fund => {
         const newFund = {
           ...fund,
-          totalDepositsAmount: fund.totalDepositsAmount.toString(),
-          totalWithdrawalsAmount: fund.totalWithdrawalsAmount.toString(),
-          totalNetProfit: fund.totalNetProfit.toString(),
-          balance: fund.balance.toString(),
-          totalWagered: fund.totalWagered.toString()
+          totalDepositsAmount: Number(fund.totalDepositsAmount.toString()),
+          totalWithdrawalsAmount: Number(fund.totalWithdrawalsAmount.toString()),
+          totalNetProfit: Number(fund.totalNetProfit.toString()),
+          balance: Number(fund.balance.toString()),
+          totalWagered: Number(fund.totalWagered.toString())
         };
 
         return newFund;
