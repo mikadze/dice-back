@@ -44,8 +44,8 @@ const ON_CONNECT = async socket => {
       userBetsP
     ]);
 
-    bets = bets.map(bet => bet.getPublicFields());
-    userBets = userBets.map(bet => bet.getPublicFields());
+    bets = (bets && bets.map(bet => bet.getPublicFields())) || [];
+    userBets = (userBets && userBets.map(bet => bet.getPublicFields())) || [];
 
     messages.reverse();
 
