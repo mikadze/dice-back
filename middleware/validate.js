@@ -6,6 +6,7 @@ const validate = schema => (req, res, next) => {
   });
 
   if (error) {
+    console.log("validation error ", error);
     return res.status(422).json({
       error: true,
       message: "Invalid request data"

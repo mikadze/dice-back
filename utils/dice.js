@@ -25,9 +25,13 @@ module.exports.calculateProfit = ({
     ? Big(rollNumber).gt(betNumber)
     : Big(rollNumber).lt(betNumber);
 
-  const profit = didWin ? Big(payout).mul(betAmount) : Big(-1).mul(betAmount);
+  const profit = didWin
+    ? Big(payout)
+        .mul(betAmount)
+        .minus(betAmount)
+    : Big(-1).mul(betAmount);
 
-  return profit;
+  return Number(profit);
 };
 
 module.exports.generateRollNum = ({ clientSeed, serverSeed, nonce }) => {

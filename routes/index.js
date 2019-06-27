@@ -24,6 +24,15 @@ router.post(
   controllers.AUTH.login
 );
 
+// OTHER
+
+router.post(
+  "/faucet",
+  protected,
+  validate(schemas.faucetRoute),
+  controllers.FAUCET.deposit
+);
+
 router.get("/coins", controllers.COINS.getOptions);
 
 module.exports = router;

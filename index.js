@@ -13,6 +13,7 @@ const io = require('socket.io')(server);
 const PORT = process.env.PORT || 8000;
 
 mongoose.connect(config.DB.URL);
+mongoose.set('useFindAndModify', false);
 
 const db = mongoose.connection;
 

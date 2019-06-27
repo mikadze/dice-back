@@ -27,7 +27,8 @@ const userSchema = new Schema(
         totalWithdrawalsAmount: mongoose.Schema.Types.Decimal,
         totalNetProfit: mongoose.Schema.Types.Decimal,
         balance: mongoose.Schema.Types.Decimal,
-        totalWagered: mongoose.Schema.Types.Decimal
+        totalWagered: mongoose.Schema.Types.Decimal,
+        lastFaucetTime: Date
       }
     ]
   },
@@ -37,8 +38,9 @@ const userSchema = new Schema(
 class UserClass {
   // Document methods
   getFund(coinName) {
-    for (let i in this.funds) {
-      let fund = this.funds[i];
+    const { funds } = this.toObject();
+    for (let i in funds) {
+      let fund = funds[i];
       if (fund.coinName === coinName) return fund;
     }
 
@@ -141,7 +143,9 @@ userSchema.set("toObject", {
         const newFund = {
           ...fund,
           totalDepositsAmount: Number(fund.totalDepositsAmount.toString()),
-          totalWithdrawalsAmount: Number(fund.totalWithdrawalsAmount.toString()),
+          totalWithdrawalsAmount: Number(
+            fund.totalWithdrawalsAmount.toString()
+          ),
           totalNetProfit: Number(fund.totalNetProfit.toString()),
           balance: Number(fund.balance.toString()),
           totalWagered: Number(fund.totalWagered.toString())

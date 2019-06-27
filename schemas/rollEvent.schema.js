@@ -22,6 +22,7 @@ const betNumber = Joi.number()
   });
 
 const coin = Joi.string()
+  .required()
   .min(3)
   .max(5);
 
