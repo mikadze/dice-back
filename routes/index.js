@@ -32,6 +32,13 @@ router.post(
   controllers.TRANSACTIONS.depositAddress
 );
 
+router.post(
+  "/withdraw",
+  protected,
+  validate(schemas.transactionRoute.withdraw),
+  controllers.TRANSACTIONS.withdraw
+);
+
 // OTHER
 router.post(
   "/faucet",

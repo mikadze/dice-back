@@ -1,4 +1,5 @@
 const Joi = require("@hapi/joi");
+const CCY = require('../utils/CCY')
 
 const betAmount = Joi.number()
   .min(0)
@@ -21,10 +22,7 @@ const betNumber = Joi.number()
       .max(98)
   });
 
-const coin = Joi.string()
-  .required()
-  .min(3)
-  .max(5);
+const coin = Joi.string().valid(...Object.keys(CCY));
 
 const bet = Joi.object().keys({
   betAmount,

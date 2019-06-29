@@ -2,12 +2,10 @@ const Joi = require("@hapi/joi");
 const authRoute = require("./authRoute.schema");
 const transactionRoute = require("./transactionRoute.schema");
 const rollEvent = require("./rollEvent.schema");
+const CCY = require("../utils/CCY");
 
 const faucetRoute = Joi.object().keys({
-  selectedCoin: Joi.string()
-    .required()
-    .min(3)
-    .max(5),
+  selectedCoin: Joi.string().valid(...Object.keys(CCY)),
   captcha: Joi.string()
     .required()
     .min(0)
