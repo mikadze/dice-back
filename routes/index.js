@@ -24,8 +24,15 @@ router.post(
   controllers.AUTH.login
 );
 
-// OTHER
+// TRANSACTIONS
+router.post(
+  "/deposit/address",
+  protected,
+  validate(schemas.transactionRoute.depositAddress),
+  controllers.TRANSACTIONS.depositAddress
+);
 
+// OTHER
 router.post(
   "/faucet",
   protected,

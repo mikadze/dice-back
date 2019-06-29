@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "big.js": "^5.2.2",
     "body-parser": "^1.19.0",
+    "coinpayments": "^2.0.3",
     "cors": "^2.8.5",
     "express": "^4.17.0",
     "jsonwebtoken": "^8.5.1",
