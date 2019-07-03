@@ -17,7 +17,7 @@ const deposit = async (req, res) => {
     // check if eligible
     const fund = req.user.getFund(selectedCoin);
     if (
-      fund.balance > 0 ||
+      fund.balance > Number(1e-8) ||
       new Date().getTime() - new Date(fund.lastFaucetTime).getTime() <
         config.DICE.FAUCET_MIN_DELAY
     )

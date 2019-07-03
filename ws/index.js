@@ -25,9 +25,9 @@ const init = io => {
   io.on(TYPES.CONNECT, socket => {
     console.log("a user connected ", socket.user && socket.user._id);
 
-    HANDLERS.ON_CONNECT(socket);
+    HANDLERS.ON_CONNECT(socket, io);
 
-    socket.on(TYPES.LOGIN, HANDLERS.ON_LOGIN(socket));
+    socket.on(TYPES.LOGIN, HANDLERS.ON_LOGIN(socket, io));
 
     socket.on(
       TYPES.CHAT.MESSAGE,
@@ -38,6 +38,8 @@ const init = io => {
       TYPES.DICE.ROLL,
       protected(HANDLERS.DICE.ON_ROLL(socket), socket)
     );
+
+    socket.on(TYPES.DISCONNECT, HANDLERS.ON_DISCONNECT(socket, io));
   });
 };
 
