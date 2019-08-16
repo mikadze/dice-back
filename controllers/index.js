@@ -1,5 +1,7 @@
 const COIN_OPTIONS = require("../utils/CCY");
 const AUTH = require("./auth");
+const BETS = require("./bet");
+const USER = require("./user");
 const TRANSACTIONS = require("./transactions");
 const User = require("../models/user");
 const axios = require("axios");
@@ -71,6 +73,8 @@ const FAUCET = {
 
 module.exports = {
   AUTH,
+  USER,
+  BETS,
   COINS,
   FAUCET,
   TRANSACTIONS

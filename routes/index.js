@@ -24,6 +24,14 @@ router.post(
   controllers.AUTH.login
 );
 
+// USER
+router.post(
+  "/user/randomize",
+  protected,
+  validate(schemas.userRoute.randomize),
+  controllers.USER.randomize
+);
+
 // TRANSACTIONS
 router.post(
   "/deposit/address",
@@ -37,6 +45,14 @@ router.post(
   protected,
   validate(schemas.transactionRoute.withdraw),
   controllers.TRANSACTIONS.withdraw
+);
+
+// BETS
+router.post(
+  "/bet/info",
+  protected,
+  validate(schemas.betRoute.getInfo),
+  controllers.BETS.getInfo
 );
 
 // OTHER

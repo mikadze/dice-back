@@ -2,6 +2,7 @@ const uuid = require("uuid");
 const crypto = require("crypto");
 const config = require("../config");
 const mongoose = require("mongoose");
+const Big = require("big.js");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
@@ -142,13 +143,13 @@ userSchema.set("toObject", {
       ret.funds = ret.funds.map(fund => {
         const newFund = {
           ...fund,
-          totalDepositsAmount: Number(fund.totalDepositsAmount.toString()),
+          totalDepositsAmount: Number(Big(fund.totalDepositsAmount.toString())),
           totalWithdrawalsAmount: Number(
-            fund.totalWithdrawalsAmount.toString()
+            Big(fund.totalWithdrawalsAmount.toString())
           ),
-          totalNetProfit: Number(fund.totalNetProfit.toString()),
-          balance: Number(fund.balance.toString()),
-          totalWagered: Number(fund.totalWagered.toString())
+          totalNetProfit: Number(Big(fund.totalNetProfit.toString())),
+          balance: Number(Big(fund.balance.toString())),
+          totalWagered: Number(Big(fund.totalWagered.toString()))
         };
 
         return newFund;
