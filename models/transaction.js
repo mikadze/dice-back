@@ -23,7 +23,8 @@ const TransactionSchema = new Schema(
     status: Number,
     status_text: String,
     txn_id: String,
-    user_id: String
+    user_id: String,
+    accounted: Boolean
   },
   { autoIndex: config.DB.AUTO_INDEX, timestamps: true }
 );
