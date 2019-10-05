@@ -11,7 +11,7 @@ const faucetRoute = Joi.object().keys({
   captcha: Joi.string()
     .required()
     .min(0)
-    .max(400)
+    .max(4000)
 });
 
 module.exports = {

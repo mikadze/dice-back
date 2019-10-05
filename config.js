@@ -17,7 +17,7 @@ module.exports = {
       "8D43c3F65608e2ff6855c60Ac74DD79c21a24472959f4bAD857E7997cf99f50B",
     IPN_SECRET: process.env.COINPAYMENTS_IPN_SECRET || "saldklsadkalsakdl",
     IPT_URL_BASE:
-      process.env.COINPAYMENTS_IPT_URL_BASE || "https://001bec72.ngrok.io/ipn"
+      process.env.COINPAYMENTS_IPT_URL_BASE || "https://properdice.com/ipn"
   },
   CCY,
   FRONT_END: {
