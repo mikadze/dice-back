@@ -11,10 +11,10 @@ module.exports = {
   COINPAYMENTS: {
     KEY:
       process.env.COINPAYMENTS_KEY ||
-      "8f4ed68cbe6730b83d9ba90ba761ef374ae2c3a9a5f659093468b8c682e0cbb5",
+      "b23fe328f272a1d12ab7ea1404b18bb5017adad19b92e6f8228cadf0228ac2e9",
     SECRET:
       process.env.COINPAYMENTS_SECRET ||
-      "8D43c3F65608e2ff6855c60Ac74DD79c21a24472959f4bAD857E7997cf99f50B",
+      "cF23ecbed8239DA0CBe84066946b248e619b8f2df49dB2c51341Cc49BD607679",
     IPN_SECRET: process.env.COINPAYMENTS_IPN_SECRET || "saldklsadkalsakdl",
     IPT_URL_BASE:
       process.env.COINPAYMENTS_IPT_URL_BASE || "https://properdice.com/ipn"
