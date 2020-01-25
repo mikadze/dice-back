@@ -21,8 +21,8 @@ module.exports = {
   },
   CCY,
   FRONT_END: {
-    URL: process.env.FRONT_END_URL || "http://localhost:3000",
-    LANDING_URL: process.env.LANDING_URL || "http://localhost:8001"
+    URL: process.env.FRONT_END_URL || "localhost:3000",
+    LANDING_URL: process.env.LANDING_URL || "localhost:8001"
   },
   DICE: {
     MARGIN: process.env.DICE_MARGIN || 0.01,

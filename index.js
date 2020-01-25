@@ -22,7 +22,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: [config.FRONT_END.URL, config.FRONT_END.LANDING_URL],
+    origin: [
+      `http://${config.FRONT_END.URL}`,
+      `https://${config.FRONT_END.URL}`,
+      `http://${config.FRONT_END.LANDING_URL}`,
+      `https://${config.FRONT_END.LANDING_URL}`
+    ],
     credentials: true
   })
 );
