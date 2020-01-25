@@ -28,9 +28,7 @@ const deposit = async (req, res) => {
     // verify captcha
     const { success } = await axios
       .post(
-        `https://www.google.com/recaptcha/api/siteverify?secret=${
-          config.CAPTCHA_SECRET
-        }&response=${captcha}`
+        `https://www.google.com/recaptcha/api/siteverify?secret=${config.CAPTCHA_SECRET}&response=${captcha}`
       )
       .then(res => res.data);
 
@@ -63,6 +61,34 @@ const deposit = async (req, res) => {
   }
 };
 
+const LANDING = {
+  subscribe: async (req, res) => {
+    try {
+      const { data } = req.body;
+      const API_KEY = "dd7f6df1c993c96aa89fbb08f1c1d0f6-us4";
+      const LIST_ID = "8f66fafdd6";
+
+      await axios(
+        `https://us4.api.mailchimp.com/3.0/lists/${LIST_ID}/members`,
+        {
+          method: "POST",
+          data,
+          headers: {
+            Authorization: `randomUser ${API_KEY}`
+          }
+        }
+      );
+      return res.json({
+        error: false
+      });
+    } catch (e) {
+      return res.status(502).json({
+        error: true
+      });
+    }
+  }
+};
+
 const COINS = {
   getOptions
 };
@@ -77,5 +103,6 @@ module.exports = {
   BETS,
   COINS,
   FAUCET,
-  TRANSACTIONS
+  TRANSACTIONS,
+  LANDING
 };

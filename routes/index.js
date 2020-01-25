@@ -65,4 +65,6 @@ router.post(
 
 router.get("/coins", controllers.COINS.getOptions);
 
+router.post("/landing/subscribe", controllers.LANDING.subscribe);
+
 module.exports = router;
