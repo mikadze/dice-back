@@ -6,7 +6,9 @@ const messageSchema = new Schema(
   {
     createTime: { type: Date },
     message: { type: String },
-    author: { type: Object }
+    author: { type: Object },
+    type: { type: String, default: "message" },
+    data: { type: Object }
   },
   { autoIndex: config.DB.AUTO_INDEX, capped: true, size: 1053248, max: 400 }
 );

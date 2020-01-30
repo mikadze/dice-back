@@ -14,5 +14,6 @@ module.exports = {
   DICE: {
     ROLL: "ROLL",
     ROLL_RESULT: "ROLL_RESULT"
-  }
+  },
+  RAIN: "RAIN"
 };

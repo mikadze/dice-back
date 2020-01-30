@@ -63,6 +63,13 @@ router.post(
   controllers.FAUCET.deposit
 );
 
+router.post(
+  "/rain",
+  protected,
+  validate(schemas.rainRoute),
+  controllers.RAIN.makeRain
+);
+
 router.get("/coins", controllers.COINS.getOptions);
 
 router.post("/landing/subscribe", controllers.LANDING.subscribe);

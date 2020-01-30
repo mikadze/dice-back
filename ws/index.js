@@ -2,6 +2,8 @@ const TYPES = require("./types");
 const HANDLERS = require("./handlers");
 const verifyToken = require("../utils").verifyToken;
 
+let IO;
+
 const protected = (func, socket) => {
   return function() {
     if (!socket.user) return;
@@ -10,6 +12,8 @@ const protected = (func, socket) => {
 };
 
 const init = io => {
+  IO = io;
+
   // MIDDLEWARE
   io.use(async (socket, next) => {
     try {
@@ -44,5 +48,6 @@ const init = io => {
 };
 
 module.exports = {
-  init
+  init,
+  getIO: () => IO
 };
